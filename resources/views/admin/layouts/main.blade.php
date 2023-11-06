@@ -25,12 +25,20 @@
         <link href="{{ asset('templates/indoui/plugins/sidemenu/sidemenu.css') }}" rel="stylesheet" />
         <!--Daterangepicker css-->
         <link href="{{ asset('templates/indoui/plugins/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet" />
+        <!---Sweetalert Css-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Select2 CSS -->
+        <link href="{{ asset('templates/indoui/plugins/select2/select2.min.css') }}" rel="stylesheet" />
+        <!-- File Uploads css-->
+        <link href="{{ asset('templates/indoui/plugins/fileuploads/css/fileuploads.css') }}" rel="stylesheet" type="text/css" />
         <!-- Countdown css-->
         <link href="{{ asset('templates/indoui/plugins/jquery-countdown/countdown.css') }}" rel="stylesheet">
         <!-- Rightsidebar css -->
         <link href="{{ asset('templates/indoui/plugins/sidebar/sidebar.css') }}" rel="stylesheet">
         <!---Icons css-->
         <link href="{{ asset('templates/indoui/css/icons.css') }}" rel="stylesheet" />
+        <!-- Custom Style -->
+        @yield('style')
 	</head>
 
 	<body class="app sidebar-mini dark-mode">
@@ -71,6 +79,14 @@
         <!-- P-scrollbar js-->
         <script src="{{ asset('templates/indoui/plugins/p-scrollbar/p-scrollbar.js') }}"></script>
         <script src="{{ asset('templates/indoui/plugins/p-scrollbar/p-scrollbar-leftmenu.js') }}"></script>
+        <!-- Sweet alert js-->
+
+        <!-- File uploads js -->
+        <script src="{{ asset('templates/indoui/plugins/fileuploads/js/fileuploads.js') }}"></script>
+        <script src="{{ asset('templates/indoui/plugins/fileuploads/js/fileuploads-demo.js') }}"></script>
+        <!--Select2 js -->
+        <script src="{{ asset('templates/indoui/plugins/select2/select2.full.min.js') }}"></script>
+        <script src="{{ asset('templates/indoui/js/select2.js') }}"></script>
         <!-- Charts js-->
         <script src="{{ asset('templates/indoui/plugins/chart/chart.bundle.js') }}"></script>
         <script src="{{ asset('templates/indoui/plugins/chart/utils.js') }}"></script>
@@ -87,6 +103,8 @@
         <script src="{{ asset('templates/indoui/plugins/sidebar/sidebar.js') }}"></script>
         <!-- Custom js-->
         <script src="{{ asset('templates/indoui/js/custom.js') }}"></script>
+        <!-- Custom Script -->
+        @yield('script')
 	</body>
 
 <!-- Mirrored from laravel.spruko.com/indoui/Leftmenu-Icon-DarkSidebar-ltr/index4 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Aug 2023 01:57:56 GMT -->

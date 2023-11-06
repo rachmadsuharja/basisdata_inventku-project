@@ -6,181 +6,68 @@
         <div class="side-app">
         <!-- page-header -->
             <div class="page-header">
-                <h1 class="page-title"><span class="subpage-title">Welcome To</span> IT Dashboard</h1>
-                <div class="ml-auto">
-                    <div class="input-group">
-                        <a  class="btn btn-primary btn-icon text-white mr-2"  id="daterange-btn" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Calendar">
-                            <span>
-                                <i class="fe fe-calendar"></i>
-                            </span>
-                        </a>
-                        <a href="#" class="btn btn-secondary btn-icon mr-2" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Rating">
-                            <span>
-                                <i class="fe fe-star"></i>
-                            </span>
-                        </a>
-                        <a href="#" class="btn btn-success btn-icon mr-2" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Email">
-                            <span>
-                                <i class="fe fe-mail"></i>
-                            </span>
-                        </a>
-                        <a href="#" class="btn btn-warning btn-icon mr-2" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Chat">
-                            <span>
-                                <i class="fe fe-message-square"></i>
-                            </span>
-                        </a>
-                        <a href="#" class="btn btn-info btn-icon mr-2" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Add New">
-                            <span>
-                                <i class="fe fe-plus"></i>
-                            </span>
-                        </a>
-                        <a href="#" class="btn btn-danger btn-icon" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Support">
-                            <span>
-                                <i class="fe fe-help-circle"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
+                <h1 class="page-title"><span class="subpage-title">Hai,</span> {{ Auth::user()->name }}!</h1>
             </div>
             <!-- End page-header -->
-                                    <!-- Row -->
+
+
+            <!-- Row -->
             <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12">
-                    <div class="card overflow-hidden">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Project Report</h3>
-                            </div>
-                            <div class="card-options">
-                                <a href="#" class="mr-4 text-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                                    <span class="fe fe-more-horizontal fs-20"></span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                    <li><a href="#"><i class="fe fe-eye mr-2"></i>View</a></li>
-                                    <li><a href="#"><i class="fe fe-plus-circle mr-2"></i>Add</a></li>
-                                    <li><a href="#"><i class="fe fe-trash-2 mr-2"></i>Remove</a></li>
-                                    <li><a href="#"><i class="fe fe-download-cloud mr-2"></i>Download</a></li>
-                                    <li><a href="#"><i class="fe fe-settings mr-2"></i>More</a></li>
-                                </ul>
+                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex mb-4">
+                                <span class="avatar align-self-center avatar-lg br-3 cover-image bg-primary-transparent">
+                                    <i class="fe fe-users text-primary"></i>
+                                </span>
+                                <div class="svg-icons text-right ml-auto">
+                                    <p class="text-muted mb-2">Total Users</p>
+                                    <h2 class="mb-0 number-font1">25,356</h2>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-6">
+                    <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-xl-7 mb-5 mb-xl-0">
-                                    <p class="card-text text-muted mb-1 number-font">Project Compilation Ratio</p>
-                                    <h2 class="number-font mb-1">85%</h2>
-                                    <div class="progress progress-md mb-5">
-                                        <div class="progress-bar bg-primary w-25"></div>
-                                        <div class="progress-bar bg-secondary w-25"></div>
-                                        <div class="progress-bar bg-success w-20"></div>
-                                        <div class="progress-bar bg-warning w-15"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-6 col-md-12 col-sm-6 mb-5 mb-xl-0">
-                                            <div class="list d-flex align-items-center  mb-5">
-                                                <div class="w-5 h-5 bg-primary mr-4 mb-2"></div>
-                                                <div class="wrapper w-90">
-                                                    <h5 class="mb-0">Project Planning</h5>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="d-flex align-items-center">
-                                                            <p class="mb-0 text-muted">100% Completed</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list d-flex align-items-center  mb-5">
-                                                <div class="w-5 h-5 bg-secondary mr-4 mb-2"></div>
-                                                <div class="wrapper w-90">
-                                                    <h5 class="mb-0">Project Designing</h5>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="d-flex align-items-center">
-                                                            <p class="mb-0 text-muted">100% Completed</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list d-flex align-items-center  mb-5">
-                                                <div class="w-5 h-5 bg-success mr-4 mb-2"></div>
-                                                <div class="wrapper w-90">
-                                                    <h5 class="mb-0">Project Development</h5>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="d-flex align-items-center">
-                                                            <p class="mb-0 text-muted">67% In progress</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list d-flex align-items-center  mb-0">
-                                                <div class="w-5 h-5 bg-warning mr-4 mb-2"></div>
-                                                <div class="wrapper w-90">
-                                                    <h5 class="mb-0">Project Testing</h5>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="d-flex align-items-center">
-                                                            <p class="mb-0 text-muted">Waiting</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-md-12 col-sm-6">
-                                            <div class="d-flex clearfix mb-5">
-                                                <div class="">
-                                                    <p class="text-muted mb-1">Assigned Projects</p>
-                                                    <h2 class="number-font mb-0">6,893<span class="card-text text-muted mb-0 fs-12">
-                                                        <span class="text-success ml-1"><i class="ion-arrow-up-b"></i> 87%</span>
-                                                        Project Ratio
-                                                    </span></h2>
-                                                </div>
-                                                <div class="ml-auto text-right">
-                                                    <span class="avatar br-3 avatar-lg bg-primary-transparent text-primary mb-3">
-                                                        <i class="fe fe-package"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix mb-5">
-                                                <div class="float-left">
-                                                    <p class="mb-1">Started Projects</p>
-                                                    <h2 class="number-font mb-0">5,437<span class="card-text text-muted mb-0 fs-12">
-                                                        <span class="text-success ml-1"><i class="ion-arrow-up-b"></i> 75%</span>
-                                                        Project Ratio
-                                                    </span></h2>
-                                                </div>
-                                                <div class="ml-auto text-right">
-                                                    <span class="avatar br-3 avatar-lg bg-secondary-transparent text-secondary mb-3">
-                                                        <i class="fe fe-navigation"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex clearfix mb-0">
-                                                <div class="">
-                                                    <p class="mb-1">Completed Projects</p>
-                                                    <h2 class="number-font mb-0">1,456<span class="card-text text-muted mb-0 fs-12">
-                                                        <span class="text-success ml-1"><i class="ion-arrow-up-b"></i> 92%</span>
-                                                        Project Ratio
-                                                    </span></h2>
-                                                </div>
-                                                <div class="ml-auto text-right">
-                                                    <span class="avatar br-3 avatar-lg bg-success-transparent text-success mb-3">
-                                                        <i class="fe fe-target"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="d-flex mb-4">
+                                <span class="avatar align-self-center avatar-lg br-3 cover-image bg-secondary-transparent">
+                                    <i class="fe fe-list text-secondary"></i>
+                                </span>
+                                <div class="svg-icons text-right ml-auto">
+                                    <p class="text-muted">Total Kategori</p>
+                                    <h2 class="mb-0 number-font">26,536</h2>
                                 </div>
-                                <div class="col-xl-5">
-                                    <div class="card text-white project-countdown mb-0">
-                                        <div class="card-body">
-                                            <h5 class="mb-1">Project Launch Date</h5>
-                                            <h2 class="mt-2 number-font fs-30">162 days
-                                                <span class="ml-1 mr-1 fs-20"></span>
-                                                <span class="fs-12">12 March 2010</span>
-                                            </h2>
-                                            <p class="text-white-transparent">To take a trivial example, which of us ever undertakes laborious physical exerciser , except to obtain some advantage from it take a trivial example...</p>
-                                            <p>Countdown Start Now:</p>
-                                            <div id="launch_date"></div>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex mb-4">
+                                <span class="avatar align-self-center avatar-lg br-3 cover-image bg-success-transparent">
+                                    <i class="fe fe-box text-success"></i>
+                                </span>
+                                <div class="svg-icons text-right ml-auto">
+                                    <p class="text-muted">Total Barang</p>
+                                    <h2 class="mb-0 number-font">17,356</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex mb-4">
+                                <span class="avatar align-self-center avatar-lg br-3 cover-image bg-warning-transparent">
+                                    <i class="fe fe-file-text text-warning"></i>
+                                </span>
+                                <div class="svg-icons text-right ml-auto">
+                                    <p class="text-muted">Total Request</p>
+                                    <h2 class="mb-0 number-font">65,458</h2>
                                 </div>
                             </div>
                         </div>
@@ -276,83 +163,6 @@
                                         <small class="text-muted ">5 days ago</small>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Row -->
-
-            <!-- Row -->
-            <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex mb-4">
-                                <span class="avatar align-self-center avatar-lg br-3 cover-image bg-primary-transparent">
-                                    <i class="fe fe-file text-primary"></i>
-                                </span>
-                                <div class="svg-icons text-right ml-auto">
-                                    <p class="text-muted mb-2">Total Projects</p>
-                                    <h2 class="mb-0 number-font1">25,356</h2>
-                                </div>
-                            </div>
-                            <div class="progress progress-md h-2">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary w-70"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex mb-4">
-                                <span class="avatar align-self-center avatar-lg br-3 cover-image bg-secondary-transparent">
-                                    <i class="fe fe-users text-secondary"></i>
-                                </span>
-                                <div class="svg-icons text-right ml-auto">
-                                    <p class="text-muted">Total Employees</p>
-                                    <h2 class="mb-0 number-font">26,536</h2>
-                                </div>
-                            </div>
-                            <div class="progress progress-md h-2">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary w-50"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex mb-4">
-                                <span class="avatar align-self-center avatar-lg br-3 cover-image bg-success-transparent">
-                                    <i class="fe fe-compass text-success"></i>
-                                </span>
-                                <div class="svg-icons text-right ml-auto">
-                                    <p class="text-muted">Total Tasks</p>
-                                    <h2 class="mb-0 number-font">17,356</h2>
-                                </div>
-                            </div>
-                            <div class="progress progress-md h-2">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success w-80"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex mb-4">
-                                <span class="avatar align-self-center avatar-lg br-3 cover-image bg-warning-transparent">
-                                    <i class="fe fe-shield text-warning"></i>
-                                </span>
-                                <div class="svg-icons text-right ml-auto">
-                                    <p class="text-muted">Total awards</p>
-                                    <h2 class="mb-0 number-font">65,458</h2>
-                                </div>
-                            </div>
-                            <div class="progress progress-md h-2">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning w-70"></div>
                             </div>
                         </div>
                     </div>

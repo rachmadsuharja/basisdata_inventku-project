@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="{{ asset('templates/indoui/plugins/bootstrap/css/bootstrap.min.css') }}">
         <!--Style css -->
         <link href="{{ asset('templates/indoui/css/style.css') }}" rel="stylesheet" />
-        <link href="{{ asset('templates/indoui/css/dark-style.css') }}" rel="stylesheet" />
         <link href="{{ asset('templates/indoui/css/skin-modes.css') }}" rel="stylesheet">
         <!-- P-scrollbar css-->
         <link href="{{ asset('templates/indoui/plugins/p-scrollbar/p-scrollbar.css') }}" rel="stylesheet" />
@@ -32,7 +31,7 @@
 
 	</head>
 
-	<body class="bg-account dark-mode">
+	<body class="light-mode">
 			    <!-- page -->
 		<div class="page">
 

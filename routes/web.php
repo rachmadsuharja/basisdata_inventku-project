@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\WelcomeController;
 
@@ -28,9 +28,10 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('admin')->group(function () {
-    Route::get('admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('admin', [UserController::class, 'index'])->name('admin');
     Route::resource('items', ItemController::class);
-    Route::get('logout', [AdminController::class,'logout'])->name('admin.logout');
+    Route::resource('category', CategoryController::class);
+    Route::get('logout', [UserController::class,'logout'])->name('admin.logout');
 });
 
 // Route::middleware('client')->group(function () {

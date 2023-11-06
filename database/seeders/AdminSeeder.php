@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AdminSeeder extends Seeder
 {
@@ -14,10 +15,26 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table("users")->insert([
-            "name" => "Rachmad Suharja",
-            "email"=> "corvusscarlet@gmail.com",
-            "password"=> Hash::make("inventku123"),
-        ]);
+        $data = [
+            [
+                "name"=> "Rachmad Suharja",
+                "role" => "admin",
+                "email"=> "corvusscarlet@gmail.com",
+                "password"=> Hash::make("inventku123"),
+            ], [
+                "name"=> "Jo Ryuushi",
+                "role"=> "admin",
+                "email"=> "jcryuushi@gmail.com",
+                "password"=> Hash::make("inventku123"),
+            ], [
+                "name" => "Harjakrepp",
+                "role"=> "admin",
+                "email" => "harjacraft@gmail.com",
+                "password" => Hash::make("inventku123")
+            ]
+        ];
+        foreach ($data as $userData) {
+            User::create($userData);
+        }
     }
 }

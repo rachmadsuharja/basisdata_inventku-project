@@ -94,7 +94,7 @@
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                         <div class="drop-heading">
                             <div class="text-center">
-                                <h5 class="text-dark mb-1">Rachmad Suharja</h5>
+                                <h5 class="text-dark mb-1"></h5>
                                 <small class="text-muted">Admin</small>
                             </div>
                         </div>
