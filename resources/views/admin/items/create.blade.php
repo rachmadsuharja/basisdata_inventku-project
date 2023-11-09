@@ -47,9 +47,12 @@
                                         <label class="form-label">Kategori</label>
                                         <select class="form-control select2-show-search" id="category_id" name="category_id" data-placeholder="Choose one (with searchbox)">
                                             <optgroup label="Kategori Barang">
-                                                @foreach ($categories as $category)
+                                                @for($i = 1; $i <= 10000; $i++)
+                                                    <option value="">{{ $i }}</option>
+                                                @endfor
+                                                {{-- @foreach ($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->category }}</option>
-                                                @endforeach
+                                                @endforeach --}}
                                             </optgroup>
                                         </select>
                                     </div>
