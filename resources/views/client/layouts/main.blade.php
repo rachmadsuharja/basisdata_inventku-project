@@ -41,23 +41,14 @@
         @yield('style')
 	</head>
 
-	<body class="app sidebar-mini dark-mode">
-		<!--Global-Loader-->
-		{{-- <div id="global-loader">
-			<img src="{{ ('templates/indoui/images/loader.svg') }}" alt="loader">
-		</div> --}}
-		<div class="page">
-			<div class="page-main">
-				@include('admin.partials.topbar')
-                @include('admin.partials.sidebar')
-
-                @yield('container')
-
-                @include('admin.partials.footer')
-			</div><!-- End page-main-->
-		</div><!-- End Page -->
-		<!-- Back to top -->
-        <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+	<body>
+        <div class="page">
+            <!--Global-Loader-->
+            {{-- <div id="global-loader">
+                <img src="{{ ('templates/indoui/images/loader.svg') }}" alt="loader">
+            </div> --}}
+            @yield('container')
+        </div>
 
         <!-- Jquery js-->
         <script src="{{ asset('templates/indoui/js/jquery-3.4.1.min.js') }}"></script>
