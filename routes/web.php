@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\RequestTransactionController;
 use App\Http\Controllers\WelcomeController;
 
 /*
@@ -31,6 +32,8 @@ Route::middleware('admin')->group(function () {
     Route::get('admin', [UserController::class, 'index'])->name('admin');
     Route::resource('items', ItemController::class);
     Route::resource('category', CategoryController::class);
+    // Route::get('transaction-request', [RequestTransactionController::class, 'index'])->name('transaction-request');
+    Route::resource('transaction-request', RequestTransactionController::class);
     Route::get('logout', [UserController::class,'logout'])->name('admin.logout');
 });
 

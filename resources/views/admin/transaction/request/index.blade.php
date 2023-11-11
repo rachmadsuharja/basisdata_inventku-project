@@ -12,7 +12,7 @@
                 {{-- <li><a href="#">Home</a></li>
                 <li><a href="#">Library</a></li>
                 <li><a href="#">Elements</a></li> --}}
-                <li class="active"><span>Kategori</span></li>
+                <li class="active"><span>Transaksi/Peminjaman</span></li>
             </ol>
         </div>
         <!-- End page-header -->
@@ -23,10 +23,10 @@
                 <div class="card overflow-hidden">
                     <div class="card-header">
                         <div>
-                            <h3 class="card-title">Daftar Kategori</h3>
+                            <h3 class="card-title">Daftar Peminjaman</h3>
                         </div>
                         <div class="card-options">
-                            <button type="button" data-toggle="modal" data-target="#addCategory" class="btn btn-success">Tambah</button>
+                            {{-- <button type="button" data-toggle="modal" data-target="#addCategory" class="btn btn-success">Tambah</button>
                             <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModal2" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -57,7 +57,7 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body">
@@ -74,13 +74,14 @@
                             <table class="table border table-bordered mb-0 text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th class="w-25">Kategori</th>
-                                        <th class="w-75">Deskripsi</th>
+                                        <th class="w-50">Nama</th>
+                                        <th class="w-25">Tanggal Request</th>
+                                        <th class="w-10">Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($categories as $category)
+                                    {{-- @forelse ($categories as $category)
                                         <tr>
                                             <td>{{ $category->category }}</td>
                                             <td class="text-wrap">{{ $category->category_description }}</td>
@@ -131,7 +132,7 @@
                                         <tr>
                                             <td colspan="7" class="text-center text-secondary"><i class="fe fe-slash"></i> Tidak ada data</td>
                                         </tr>
-                                    @endforelse
+                                    @endforelse --}}
                                 </tbody>
                             </table>
                         </div>

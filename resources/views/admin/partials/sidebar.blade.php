@@ -18,7 +18,7 @@
         <li class="slide">
             <a class="side-menu__item {{ Request::routeIs('incoming-payment','incoming-request') ? 'active' : '' }}" data-toggle="slide" href="#"><i class="side-menu__icon fe fe-file-text"></i><span class="side-menu__label">Transaksi</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li><a href="form-elements.html" class="slide-item">Peminjaman</a></li>
+                <li><a href="transaction-request" class="slide-item">Peminjaman</a></li>
                 <li><a href="form-wizard.html" class="slide-item">Pengembalian</a></li>
             </ul>
         </li>
