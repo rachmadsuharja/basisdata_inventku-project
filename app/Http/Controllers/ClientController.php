@@ -12,8 +12,7 @@ class ClientController extends Controller
     public function requestItem(Request $request) {
         $categories = Category::all();
         $items = Item::all();
-        $carts = Cart::paginate(4);
-        return view("client.request", compact("categories", "items", "carts"));
+        return view("client.request", compact("categories", "items"));
     }
 
     public function getItems() {
