@@ -6,9 +6,9 @@
         <li class="slide">
             <a class="side-menu__item {{ Request::routeIs('admin') ? 'active' : '' }}" href="{{ route('admin') }}"><i class="side-menu__icon fe fe-airplay"></i><span class="side-menu__label">Dashboard</span></a>
         </li>
-        <li class="slide">
+        {{-- <li class="slide">
             <a class="side-menu__item {{ Request::routeIs('admin') ? 'active' : '' }}" href="{{ route('admin') }}"><i class="side-menu__icon fe fe-airplay"></i><span class="side-menu__label">Manajemen Users</span></a>
-        </li>
+        </li> --}}
         <li class="slide">
             <a class="side-menu__item {{ Request::routeIs('category.index') ? 'active' : '' }}" href="{{ route('category.index') }}"><i class="side-menu__icon fe fe-airplay"></i><span class="side-menu__label">Kategori</span></a>
         </li>
