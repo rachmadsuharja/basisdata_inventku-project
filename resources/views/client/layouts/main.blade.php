@@ -8,6 +8,7 @@
 		<meta content="IndoUi – Bootstrap 4 Admin Dashboard HTML Template" name="description">
 		<meta content="Spruko Technologies Private Limited" name="author">
 		<meta name="keywords" content="admin, admin dashboard template, admin panel template, admin template, best bootstrap admin template, bootstrap 4 admin template, bootstrap 4 dashboard template, bootstrap admin template, bootstrap dashboard template, html admin template, html5 dashboard template, html5 admin template, modern admin template, simple admin template, template admin bootstrap 4"/>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 		<!-- Favicon -->
         <link rel="icon" href="{{ asset('templates/indoui/images/brand/favicon.ico') }}" type="image/x-icon"/>
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('templates/indoui/images/brand/favicon.ico') }}" />
