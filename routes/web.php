@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
@@ -22,6 +23,8 @@ use App\Http\Controllers\WelcomeController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('request-items', [ClientController::class, 'requestItem'])->name('request-items');
+Route::get('get-items', [ClientController::class, 'getItems'])->name('get-items');
+Route::resource('cart', CartController::class);
 
 //AUTH
 Route::middleware('guest')->group(function () {
