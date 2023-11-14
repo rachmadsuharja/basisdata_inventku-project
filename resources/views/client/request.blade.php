@@ -138,7 +138,11 @@
                                                             <td>{{ $cart->item }}</td>
                                                             <td>{{ $cart->item_amount }}</td>
                                                             <td>
-                                                                <button class="btn btn-transparent"><i class="fe fe-trash-2 text-danger"></i></button>
+                                                                <form action="{{ route('cart.destroy',$cart->id) }}" method="post">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button class="btn btn-transparent"><i class="fe fe-trash-2 text-danger"></i></button>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                     @empty

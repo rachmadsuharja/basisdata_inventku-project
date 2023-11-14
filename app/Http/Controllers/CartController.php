@@ -14,7 +14,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return to_route("request-items");
     }
 
     /**
@@ -30,12 +30,22 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $item = Item::findOrFail($request->item);
         $validator = Validator::make($request->all(), [
             "item" => "required",
-            "item_amount" => "required|numeric|gt:0",
+            "item_amount" => "required|numeric|gt:0|lte:".$item->stock,
+        ],[
+            "item.required"=> "Barang tidak boleh kosong",
+            "item_amount.required"=> "Jumlah tidak boleh kosong",
+            "item_amount.numeric"=> "Jumlah tidak valid",
+            "item_amount.gt"=> "Jumlah tidak valid",
+            "item_amount.lte" => "Jumlah terlalu banyak dari stok yang disediakan",
         ]);
 
-        $item = Item::findOrFail($request->item);
+        // $cart = Cart::all();
+        // if ($cart->contains) {
+        //     return to_route("cart.update")->with($cart)->withInput($request->except('_token'));
+        // };
 
         if ($validator->fails()) {
             toastr()->error('Gagal menambahkan barang', 'Gagal');
@@ -73,14 +83,16 @@ class CartController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {
-
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
-        //
+        $item = Cart::findOrFail($id);
+        $item->delete();
+        toastr()->success('Berhasil menghapus item','Berhasil');
+        return to_route('request-items');
     }
 }
