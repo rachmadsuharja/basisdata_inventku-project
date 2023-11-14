@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class RequestTransactionController extends Controller
@@ -11,7 +12,9 @@ class RequestTransactionController extends Controller
      */
     public function index(Request $request)
     {
-        return view("admin.transaction.request.index");
+        $transactions = Transaction::all();
+        // return $transactions;
+        return view("admin.transaction.request.index", compact("transactions"));
     }
 
     /**

@@ -25,40 +25,6 @@
                         <div>
                             <h3 class="card-title">Daftar Peminjaman</h3>
                         </div>
-                        <div class="card-options">
-                            {{-- <button type="button" data-toggle="modal" data-target="#addCategory" class="btn btn-success">Tambah</button>
-                            <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModal2" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title font-weight-bold" id="example-Modal2">Tambah Category</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <form action="{{ route('category.store') }}" method="post">
-                                            @csrf
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label for="category" class="form-label">Kategori</label>
-                                                        <input type="text" class="form-control" id="category" name="category" value="{{ old('category') }}">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label for="category_description" class="form-label">Deskripsi</label>
-                                                        <textarea class="form-control" name="category_description" id="category_description" rows="8">{{ old('category_description') }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-danger" data-dismiss="modal">Batal</button>
-                                                <button type="submit" class="btn btn-primary">Tambah</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> --}}
-                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row mb-2">
@@ -81,10 +47,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @forelse ($categories as $category)
+                                    @forelse ($transactions as $item)
                                         <tr>
-                                            <td>{{ $category->category }}</td>
-                                            <td class="text-wrap">{{ $category->category_description }}</td>
+                                            <td>{{ $item->category }}</td>
                                             <td>
                                                 <div class="d-flex flex-row">
                                                     <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#editCategory{{ $category->id }}"><i class="fe fe-edit"></i></button>
@@ -132,7 +97,7 @@
                                         <tr>
                                             <td colspan="7" class="text-center text-secondary"><i class="fe fe-slash"></i> Tidak ada data</td>
                                         </tr>
-                                    @endforelse --}}
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
