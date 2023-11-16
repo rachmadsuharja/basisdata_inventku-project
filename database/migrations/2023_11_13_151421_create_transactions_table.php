@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('phone_number')->nullable();
+            $table->string('no_hp')->nullable();
+            $table->foreignId('item_id')->references('id')->on('items')->onDelete('restrict')->onUpdate('restrict');
+            $table->integer('stock');
+            $table->string('status');
             $table->timestamps();
         });
     }
