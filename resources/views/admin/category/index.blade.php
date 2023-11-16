@@ -31,7 +31,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title font-weight-bold" id="example-Modal2">Tambah Category</h5>
+                                            <h5 class="modal-title font-weight-bold" id="example-Modal2">Tambahkan Kategori</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span>
                                             </button>
@@ -45,7 +45,7 @@
                                                         <input type="text" class="form-control" id="category" name="category" value="{{ old('category') }}">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <label for="category_description" class="form-label">Deskripsi</label>
+                                                        <label for="category_description" class="form-label">Deskripsi <i class="text-secondary">(Opsional)</i></label>
                                                         <textarea class="form-control" name="category_description" id="category_description" rows="8">{{ old('category_description') }}</textarea>
                                                     </div>
                                                 </div>

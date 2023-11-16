@@ -1,114 +1,113 @@
 @extends('admin.layouts.main')
-{{-- <style>
-    .table thead tr th {
-        text-align: center;
-    }
-</style> --}}
+
+@section('style')
+@endsection
+
 @section('container')
 <div class="app-content toggle-content">
     <div class="side-app">
     <!-- page-header -->
         <div class="page-header">
             <ol class="breadcrumb breadcrumb-arrow mt-3">
-                <li><a href="{{ route('items.index') }}">Manajemen Barang</a></li>
-                <li class="active"><span>Tambah Barang</span></li>
+                {{-- <li><a href="#">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="#">Elements</a></li> --}}
+                <li class="active"><span>Transaksi/Peminjaman</span></li>
             </ol>
         </div>
+        <!-- End page-header -->
 
         <!-- Row -->
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="card overflow-hidden">
-                    <form action="{{ route('items.store') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Daftarkan Barang Baru Anda</h3>
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Daftar Peminjaman</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-2">
+                            <div class="col-md-4">
+                                <form action="{{ route('transaction-request.index') }}" method="get" class="d-flex">
+                                    @csrf
+                                    <input type="search" class="form-control position-relative" name="search" id="search" value="{{ request('search') }}" placeholder="What are you looking for?">
+                                    <button type="submit" class="btn btn-primary"><i class="fe fe-search"></i></button>
+                                </form>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="code">Kode</label>
-                                        <input type="text" class="form-control @error('code') is-invalid state-invalid @enderror" id="code" name="code" placeholder="Kode Barang" value="{{ old('code') }}">
-                                        @error('code')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="name">Nama</label>
-                                        <input type="text" class="form-control @error('name') is-invalid state-invalid @enderror" id="name" name="name" placeholder="Nama Barang" value="{{ old('name') }}">
-                                        @error('name')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group ">
-                                        <label class="form-label">Kategori</label>
-                                        <select class="form-control select2-show-search" id="category_id" name="category_id" data-placeholder="Choose one (with searchbox)">
-                                            <optgroup label="Kategori Barang">
-                                                @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->category }}</option>
-                                                @endforeach
-                                            </optgroup>
-                                        </select>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label class="form-label" for="stock">Stok</label>
-                                                <input type="number" class="form-control @error('stock') is-invalid state-invalid @enderror" id="stock" name="stock" placeholder="Stok Barang" value="{{ old('stock') }}">
-                                                @error('stock')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label class="form-label">Satuan</label>
-                                                <input type="text" class="form-control @error('unit') is-invalid state-invalid @enderror" id="unit" name="unit" placeholder="Satuan Barang" value="{{ old('unit') }}">
-                                                @error('unit')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="price">Harga</label>
-                                        <div class="row gutters-sm">
-                                            <div class="col">
-                                                <input type="number" class="form-control @error('price') is-invalid state-invalid @enderror" id="price" name="price" placeholder="Harga Barang (Rupiah)" value="{{ old('price') }}">
-                                                @error('price')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <span class="col-auto align-self-center">
-                                                <span class="form-help" data-toggle="popover" data-placement="top"
-                                                data-content="<p>Rupiah merupakan mata uang resmi Indonesia yang diterbitkan dan dikendalikan oleh Bank Indonesia. Silahkan konversikan ke Rupiah terlebih dahulu jika Anda ingin memastikan harga dari mata uang Asing.</p><p class='mb-0'><a href='https://www.bi.go.id/id/statistik/informasi-kurs/transaksi-bi/kalkulator-kurs.aspx' target='_blank'>Kalkulator Kurs Rupiah</a></p>" data-original-title="" title="">?</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Foto</label>
-                                        <input type="file" class="dropify form-control @error('image') is-invalid state-invalid @enderror" name="image" id="image">
-                                        @error('image')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="item_description" class="form-label">Deskripsi (Opsional)</label>
-                                    <textarea name="item_description" id="item_description" rows="8" class="form-control" placeholder="Deskripsi Barang ...">{{ old('item_description') }}</textarea>
-                                </div>
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table border table-bordered mb-0 text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th class="w-50">Nama</th>
+                                        <th class="w-25">Tanggal Request</th>
+                                        <th class="w-10">Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($transactions as $item)
+                                        <tr>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->created_at }}</td>
+                                            <td><a href="#" class="btn btn-pill btn-success">{{ $item->status }}</a></td>
+                                            <td>
+                                                <div class="d-flex flex-row">
+                                                    <button type="button" class="btn btn-warning mr-2" data-toggle="modal" data-target="#itemDetails{{ $item->id }}"><i class="fe fe-eye"></i></button>
+                                                    <button type="submit" class="btn btn-primary mr-2"><i class="fe fe-check"></i></button>
+                                                    <div class="modal fade" id="editCategory{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModal2" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title font-weight-bold" id="example-Modal2">Edit Category</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
+                                                                </div>
+                                                                <form action="{{ route('category.update', $item->id) }}" method="post">
+                                                                    @csrf
+                                                                    @method('put')
+                                                                    <div class="modal-body">
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <label for="category" class="form-label">Kategori</label>
+                                                                                <input type="text" class="form-control" id="category" name="category" value="{{ $item->category }}">
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <label for="category_description" class="form-label">Deskripsi</label>
+                                                                                <textarea class="form-control" name="category_description" id="category_description" rows="8">{{ $item->category_description }}</textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-danger" data-dismiss="modal">Batal</button>
+                                                                        <button type="submit" class="btn btn-primary">Tambah</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <form action="{{ route('transaction-request.destroy', $item->id) }}" id="deleteCategory{{ $item->id }}" onsubmit="deleteCategory(event, {{ $item->id }})" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger"><i class="fe fe-x"></i></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="7" class="text-center text-secondary"><i class="fe fe-slash"></i> Tidak ada data</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="card-footer">
-                            <a href="{{ route('items.index') }}" class="btn btn-danger">Batal</a>
-                            <button class="btn btn-primary">Tambah</button>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end align-items-center">
+                        {{-- {{ $categories->links() }} --}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,10 +132,13 @@
                     <div class="chat">
                         <div class="contacts_card">
                             <div class="input-group p-3">
-                                <input type="text" placeholder="Search..." class="form-control search">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text search_btn  "><i class="fa fa-search"></i></span>
-                                </div>
+                                <form action="{{ route('transaction-request.index') }}" method="get">
+                                    @csrf
+                                    <input type="text" placeholder="Search..." name="search" id="search" class="form-control search bg-danger">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text search_btn"><i class="fa fa-search"></i></span>
+                                    </div>
+                                </form>
                             </div>
                             <ul class="contacts mb-0">
                                 <li>
@@ -486,3 +488,24 @@
 </div><!-- End app-content-->
 @endsection
 
+@section('script')
+    <script>
+        function deleteCategory(event, id) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Hapus',
+                text: "Apakah Anda yakin ingin menghapus data?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#f5474b',
+                cancelButtonColor: '#5964ff',
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('deleteCategory' + id).submit();
+                }
+            })
+        }
+    </script>
+@endsection

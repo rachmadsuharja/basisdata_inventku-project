@@ -2,9 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\RequestTransactionController;
 use App\Http\Controllers\WelcomeController;
 
 /*
@@ -19,6 +22,7 @@ use App\Http\Controllers\WelcomeController;
 */
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('request-items', [ClientController::class, 'requestItem'])->name('request-items');
 
 //AUTH
 Route::middleware('guest')->group(function () {
@@ -31,6 +35,8 @@ Route::middleware('admin')->group(function () {
     Route::get('admin', [UserController::class, 'index'])->name('admin');
     Route::resource('items', ItemController::class);
     Route::resource('category', CategoryController::class);
+    // Route::get('transaction-request', [RequestTransactionController::class, 'index'])->name('transaction-request');
+    Route::resource('transaction-request', RequestTransactionController::class);
     Route::get('logout', [UserController::class,'logout'])->name('admin.logout');
 });
 
