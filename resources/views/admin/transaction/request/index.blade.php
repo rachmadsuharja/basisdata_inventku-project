@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <div class="row mb-2">
                             <div class="col-md-4">
-                                <form action="{{ route('category.index') }}" method="get" class="d-flex">
+                                <form action="{{ route('transaction-request.index') }}" method="get" class="d-flex">
                                     @csrf
                                     <input type="search" class="form-control position-relative" name="search" id="search" value="{{ request('search') }}" placeholder="What are you looking for?">
                                     <button type="submit" class="btn btn-primary"><i class="fe fe-search"></i></button>
@@ -49,11 +49,14 @@
                                 <tbody>
                                     @forelse ($transactions as $item)
                                         <tr>
-                                            <td>{{ $item->category }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->created_at }}</td>
+                                            <td><a href="#" class="btn btn-pill btn-success">{{ $item->status }}</a></td>
                                             <td>
                                                 <div class="d-flex flex-row">
-                                                    <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#editCategory{{ $category->id }}"><i class="fe fe-edit"></i></button>
-                                                    <div class="modal fade" id="editCategory{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModal2" aria-hidden="true">
+                                                    <button type="button" class="btn btn-warning mr-2" data-toggle="modal" data-target="#itemDetails{{ $item->id }}"><i class="fe fe-eye"></i></button>
+                                                    <button type="submit" class="btn btn-primary mr-2"><i class="fe fe-check"></i></button>
+                                                    <div class="modal fade" id="editCategory{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModal2" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -62,18 +65,18 @@
                                                                         <span aria-hidden="true">×</span>
                                                                     </button>
                                                                 </div>
-                                                                <form action="{{ route('category.update', $category->id) }}" method="post">
+                                                                <form action="{{ route('category.update', $item->id) }}" method="post">
                                                                     @csrf
                                                                     @method('put')
                                                                     <div class="modal-body">
                                                                         <div class="row">
                                                                             <div class="col-md-12">
                                                                                 <label for="category" class="form-label">Kategori</label>
-                                                                                <input type="text" class="form-control" id="category" name="category" value="{{ $category->category }}">
+                                                                                <input type="text" class="form-control" id="category" name="category" value="{{ $item->category }}">
                                                                             </div>
                                                                             <div class="col-md-12">
                                                                                 <label for="category_description" class="form-label">Deskripsi</label>
-                                                                                <textarea class="form-control" name="category_description" id="category_description" rows="8">{{ $category->category_description }}</textarea>
+                                                                                <textarea class="form-control" name="category_description" id="category_description" rows="8">{{ $item->category_description }}</textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -85,10 +88,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <form action="{{ route('category.destroy', $category->id) }}" id="deleteCategory{{ $category->id }}" onsubmit="deleteCategory(event, {{ $category->id }})" method="post">
+                                                    <form action="{{ route('transaction-request.destroy', $item->id) }}" id="deleteCategory{{ $item->id }}" onsubmit="deleteCategory(event, {{ $item->id }})" method="post">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger"><i class="fe fe-trash-2"></i></button>
+                                                        <button type="submit" class="btn btn-danger"><i class="fe fe-x"></i></button>
                                                     </form>
                                                 </div>
                                             </td>
@@ -129,7 +132,7 @@
                     <div class="chat">
                         <div class="contacts_card">
                             <div class="input-group p-3">
-                                <form action="{{ route('category.index') }}" method="get">
+                                <form action="{{ route('transaction-request.index') }}" method="get">
                                     @csrf
                                     <input type="text" placeholder="Search..." name="search" id="search" class="form-control search bg-danger">
                                     <div class="input-group-prepend">
